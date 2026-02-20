@@ -1,5 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./components/loginButton";
+import LogoutButton from "./components/logoutButton";
+import Profile from "./components/profile";
 
 function App() {
   const { isAuthenticated, isLoading, error, mfa } = useAuth0();
@@ -40,7 +42,18 @@ function App() {
           }}
         />
 
-        {!isAuthenticated && (
+        {isAuthenticated ? (
+          <div className="logged-in-section">
+            <div className="logged-in-message">
+              ✅ Successfully authenticated!
+            </div>
+            <h2 className="profile-section-title">Your Profile</h2>
+            <div className="profile-card">
+              <Profile />
+            </div>
+            <LogoutButton />
+          </div>
+        ) : (
           <div className="action-card">
             <p className="action-text">
               Get started by signing in to your account
