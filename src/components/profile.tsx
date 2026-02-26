@@ -1,30 +1,36 @@
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
+import { useEffect } from "react";
 import LogoutButton from "./logoutButton";
-import {} from 'auth0-js'
+import { auth } from "../lib/auth";
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  // const { user, isAuthenticated, isLoading } = useAuth0();
 
-  console.log({
-    user,
-    isAuthenticated,
-    isLoading,
+  useEffect(() => {
+    auth.parseHash((cb) => {
+      console.log({ cb });
+    });
+  }, []);
+  // console.log({
+  //   user,
+  //   isAuthenticated,
+  //   isLoading,
 
-  })
+  // })
 
-  if (isLoading) {
-    return <div className="loading-text">Loading profile...</div>;
-  }
+  // if (isLoading) {
+  //   return <div className="loading-text">Loading profile...</div>;
+  // }
 
   return (
     <>
-      {isAuthenticated && user && (
+      {
         <div className="logged-in-section">
           <div className="logged-in-message">
             ✅ Successfully authenticated!
           </div>
           <h2 className="profile-section-title">Your Profile</h2>
-          <div className="profile-card">
+          {/* <div className="profile-card">
             <div
               style={{
                 display: "flex",
@@ -72,10 +78,10 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <LogoutButton />
         </div>
-      )}
+      }
     </>
   );
 };
