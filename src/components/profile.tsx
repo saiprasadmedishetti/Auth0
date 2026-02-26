@@ -4,6 +4,13 @@ import LogoutButton from "./logoutButton";
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
+  console.log({
+    user,
+    isAuthenticated,
+    isLoading,
+    
+  })
+
   if (isLoading) {
     return <div className="loading-text">Loading profile...</div>;
   }
