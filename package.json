@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.15.0",
+    "@types/auth0-js": "^9.21.6",
+    "auth0-js": "^9.30.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.0"
