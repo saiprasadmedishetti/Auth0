@@ -7,7 +7,7 @@ const Profile = () => {
   // const { user, isAuthenticated, isLoading } = useAuth0();
 
   useEffect(() => {
-    auth.parseHash((err, data) => {
+    auth.parseHash((_, data) => {
       console.log(data);
       window.location.hash = "";
     });
