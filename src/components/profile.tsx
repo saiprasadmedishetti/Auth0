@@ -9,9 +9,9 @@ const Profile = () => {
   useEffect(() => {
     auth.parseHash((_, data) => {
       console.log(data);
-      auth.client.userInfo(data!.accessToken!, res => {
-        console.log(res)
-      })
+      auth.client.getSSOData((sso) => {
+        console.log({ sso });
+      });
       window.location.hash = "";
     });
   }, []);
