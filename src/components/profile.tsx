@@ -1,5 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "./logoutButton";
+import {} from 'auth0-js'
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -8,7 +9,7 @@ const Profile = () => {
     user,
     isAuthenticated,
     isLoading,
-    
+
   })
 
   if (isLoading) {
