@@ -10,8 +10,12 @@ const LoginButton = () => {
       {
         email: "saiprasad.medishetti@sjp.co.uk",
         password: "Sai@123456",
-        realm: 'Username-Password-Authentication',
-        redirectUri:  window.location.href + 'profile'
+        realm: "Username-Password-Authentication",
+        redirectUri: window.location.href + "profile",
+        onRedirecting(done) {
+          console.log("On redirecting..");
+          done();
+        },
       },
       (error, result) => {
         if (error) {
